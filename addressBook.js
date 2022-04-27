@@ -98,6 +98,8 @@ class Contact {
 let addressBookArray = new Array();
 let contact = new Contact("Ajit", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
 let contact = new Contact("Aji", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
+let contact2 = new Contact("Roopa", "Rao", "Abcd", "Madurai", "Tamilnadu", 543543, 8877669900, "roopa@gmail.com.co");
+
 
 function addContact(contact) {
     let isContactExist = addressBookArray.filter(c => c.firstName === contact.firstName);
@@ -111,6 +113,7 @@ function addContact(contact) {
 try{
     addContact(contact);
     addContact(contact1);
+    addContact(contact2);
     console.log("Address Book:\n" + addressBookArray);
     {
         let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
@@ -148,7 +151,7 @@ try{
         addressBookArray.filter(contact => contact.state == state)
                         .forEach(contact => console.log(contact));
     }
-    // UC 9
+    // UC 10
     let city = 'Lohara';
     let personCountInCity = addressBookArray.filter(contact => contact.city == city)
                                             .reduce((totalCount, contact) => {
@@ -158,10 +161,16 @@ try{
 
     let state = 'Maharashtra';
     let personCountInState = addressBookArray.filter(contact => contact.state == state)
-                    .reduce((totalCount, contact) => {
-                        return totalCount += 1;
-                    }, 0);
+                                            .reduce((totalCount, contact) => {
+                                                return totalCount += 1;
+                                            }, 0);
     console.log("Count of contacts in state " + state + " is: " + personCountInState);
+
+    // UC 11
+    addressBookArray.sort((contact1, contact2) => {
+                        return contact1.firstName.localeCompare(contact2.firstName);
+                    })
+                    .forEach(contact => console.log(contact));               
 } catch (e) {   
     console.error(e);
 }
