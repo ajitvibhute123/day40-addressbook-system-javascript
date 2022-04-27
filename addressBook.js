@@ -126,6 +126,13 @@ try{
         return totalCount += 1;
     }, 0);
     console.log("Total contacts count: ", count)
-} catch (e) {
+
+    // UC 8
+    let city = 'Lohara';
+    let personToSearch = 'Aji';
+    addressBookArray.filter(contact => contact.city == city)
+                    .filter(contact => contact.firstName == personToSearch)
+                    .forEach(contact => console.log(contact));
+} catch (e) {   
     console.error(e);
 }
