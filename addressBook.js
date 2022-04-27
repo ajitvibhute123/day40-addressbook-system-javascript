@@ -98,4 +98,7 @@ class Contact {
 let addressBookArray = new Array();
 let contact = new Contact("Ajit", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
 addressBookArray.push(contact);
+
+let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
+addressBookArray[index].phoneNumber = 9850962723;
 console.log(addressBookArray);
