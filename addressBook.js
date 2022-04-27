@@ -112,15 +112,15 @@ try{
     addContact(contact);
     addContact(contact1);
     console.log("Address Book:\n" + addressBookArray);
-    {
-        let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
-        addressBookArray[index].phoneNumber = 9850962723;
-        console.log("Edited contact:\n" + addressBookArray[index]);
-    }
+    // {
+    //     let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
+    //     addressBookArray[index].phoneNumber = 9850962723;
+    //     console.log("Edited contact:\n" + addressBookArray[index]);
+    // }
     
-    let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
-    let deletedContact = addressBookArray.slice(index, 1);
-    console.log("Deleted contact:\n" + deletedContact);
+    // let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
+    // let deletedContact = addressBookArray.slice(index, 1);
+    // console.log("Deleted contact:\n" + deletedContact);
 
     let count = addressBookArray.reduce((totalCount, contact) => {
         return totalCount += 1;
@@ -128,10 +128,23 @@ try{
     console.log("Total contacts count: ", count)
 
     // UC 8
+    {
+        let city = 'Lohara';
+        let personToSearch = 'Aji';
+        addressBookArray.filter(contact => contact.city == city)
+                        .filter(contact => contact.firstName == personToSearch)
+                        .forEach(contact => console.log(contact));
+    }
+
+    // UC 9
     let city = 'Lohara';
-    let personToSearch = 'Aji';
+    console.log("Contacts in city " + city);
     addressBookArray.filter(contact => contact.city == city)
-                    .filter(contact => contact.firstName == personToSearch)
+                    .forEach(contact => console.log(contact));
+
+    let state = 'Maharashtra';
+    console.log("Contacts in state " + state);
+    addressBookArray.filter(contact => contact.state == state)
                     .forEach(contact => console.log(contact));
 } catch (e) {   
     console.error(e);
