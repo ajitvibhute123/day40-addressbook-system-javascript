@@ -167,10 +167,30 @@ try{
     console.log("Count of contacts in state " + state + " is: " + personCountInState);
 
     // UC 11
+    console.log("Sorting by name");
     addressBookArray.sort((contact1, contact2) => {
                         return contact1.firstName.localeCompare(contact2.firstName);
                     })
-                    .forEach(contact => console.log(contact));               
+                    .forEach(contact => console.log(contact));  
+                    
+    // UC 12
+    console.log("Sorting by city");
+    addressBookArray.sort((contact1, contact2) => {
+                        return contact1.city.localeCompare(contact2.city);
+                    })
+                    .forEach(contact => console.log(contact)); 
+
+    console.log("Sorting by state");
+    addressBookArray.sort((contact1, contact2) => {
+                        return contact1.state.localeCompare(contact2.state);
+                    })
+                    .forEach(contact => console.log(contact)); 
+    console.log("Sorting by zip code");
+
+    addressBookArray.sort((contact1, contact2) => {
+                        return contact1.zipCode - contact2.zipCode;
+                    })
+                    .forEach(contact => console.log(contact)); 
 } catch (e) {   
     console.error(e);
 }
