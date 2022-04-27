@@ -95,6 +95,7 @@ class Contact {
         ", state = " + this.state + ", zipCode = " + this.zipCode + ", phoneNumber = " + this.phoneNumber + ", email = " + this.email;
     }
 }
-
-let contact = new Contact("Ajit", "Vibhute", "Navunda", "Lohara", "Maharashtra", 9850962723, "vibhuteajit3@gmail.com", 567567);
-console.log(contact.toString());
+let addressBookArray = new Array();
+let contact = new Contact("Ajit", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
+addressBookArray.push(contact);
+console.log(addressBookArray);
