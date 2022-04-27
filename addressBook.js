@@ -97,14 +97,35 @@ class Contact {
 }
 let addressBookArray = new Array();
 let contact = new Contact("Ajit", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
-addressBookArray.push(contact);
-let contact1 = new Contact("Aji", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
-addressBookArray.push(contact1);
+let contact = new Contact("Aji", "Vibhute", "Navunda", "Lohara", "Maharashtra", 567567, 9850962723, "vibhuteajit3@gmail.com");
 
-let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
-addressBookArray[index].phoneNumber = 9850962723;
-console.log(addressBookArray);
+function addContact(contact) {
+    let isContactExist = addressBookArray.filter(c => c.firstName === contact.firstName);
+    if (isContactExist.length == 0) {
+        addressBookArray.push(contact);
+    } else {
+        console.log("Contact already exists");
+    }
+}
 
-let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
-addressBookArray.slice(index, 1);
-console.log(addressBookArray);
+try{
+    addContact(contact);
+    addContact(contact1);
+    console.log("Address Book:\n" + addressBookArray);
+    {
+        let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
+        addressBookArray[index].phoneNumber = 9850962723;
+        console.log("Edited contact:\n" + addressBookArray[index]);
+    }
+    
+    let index = addressBookArray.findIndex(contact => contact.firstName === "Ajit");
+    let deletedContact = addressBookArray.slice(index, 1);
+    console.log("Deleted contact:\n" + deletedContact);
+
+    let count = addressBookArray.reduce((totalCount, contact) => {
+        return totalCount += 1;
+    }, 0);
+    console.log("Total contacts count: ", count)
+} catch (e) {
+    console.error(e);
+}
